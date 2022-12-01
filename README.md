@@ -4,24 +4,11 @@ No particular challange done, though (at list at the beginning I try to stick to
 Path to the input file should be passed as a first argument to the program.
 
 ### Progress
-![](https://img.shields.io/badge/days%20completed%20📅-1-blue)
-
-![](https://img.shields.io/badge/stars%20⭐-2-yellow)
-
-### Languages
-
-| Day | Language | --- | Day | Language |
-|----:|:--------:|:---:|----:|:--------:|
-|1|Rust||14||
-|2|||15||
-|3|||16||
-|4|||17||
-|5|||18||
-|6|||19||
-|7|||20||
-|8|||21||
-|9|||22||
-|10|||23||
-|11|||24||
-|12|||25||
-|13||
+<!-- AOC TILES BEGIN -->
+<h1 align="center">
+  2 ⭐
+</h1>
+<a href="Day 1/src/main.rs">
+  <img src="Media/2022/01.png" width="161px">
+</a>
+<!-- AOC TILES END -->

@@ -116,42 +116,31 @@ def get_paths_matching_regex(path: Path, pattern: str):
     return sorted([p for p in path.iterdir() if re.fullmatch(pattern, p.name)])
 
 
-def parse_leaderboard(leaderboard_path: Path) -> dict[str, DayScores]:
+def parse_leaderboard(leaderboard_text: str) -> dict[str, DayScores]:
     no_stars = "You haven't collected any stars... yet."
     start = '<span class="leaderboard-daydesc-both"> *Time *Rank *Score</span>\n'
     end = "</pre>"
-    with open(leaderboard_path) as file:
-        html = file.read()
-        if no_stars in html:
-            return {}
-        matches = re.findall(rf"{start}(.*?){end}", html, re.DOTALL | re.MULTILINE)
-        assert len(matches) == 1, f"Found {'no' if len(matches) == 0 else 'more than one'} leaderboard?!"
-        table_rows = matches[0].strip().split("\n")
-        leaderboard = {}
-        for line in table_rows:
-            day, *scores = re.split(r"\s+", line.strip())
-            # replace "-" with None to be able to handle the data later, like if no score existed for the day
-            scores = [s if s != "-" else None for s in scores]
-            assert len(scores) in (
-                3, 6), f"Number scores for {day=} ({scores}) are not 3 or 6."
-            leaderboard[day] = DayScores(*scores)
-        return leaderboard
+    if no_stars in leaderboard_text:
+        return {}
+    matches = re.findall(rf"{start}(.*?){end}", leaderboard_text, re.DOTALL | re.MULTILINE)
+    assert len(matches) == 1, f"Found {'no' if len(matches) == 0 else 'more than one'} leaderboard?!"
+    table_rows = matches[0].strip().split("\n")
+    leaderboard = {}
+    for line in table_rows:
+        day, *scores = re.split(r"\s+", line.strip())
+        # replace "-" with None to be able to handle the data later, like if no score existed for the day
+        scores = [s if s != "-" else None for s in scores]
+        assert len(scores) in (
+            3, 6), f"Number scores for {day=} ({scores}) are not 3 or 6."
+        leaderboard[day] = DayScores(*scores)
+    return leaderboard
 
 
 def request_leaderboard(year: int) -> dict[str, DayScores]:
-    leaderboard_path = CACHE_DIR / f"leaderboard{year}.html"
-    if leaderboard_path.exists():
-        leaderboard = parse_leaderboard(leaderboard_path)
-        has_no_none_values = all(itertools.chain(map(list, leaderboard.values())))
-        if has_no_none_values:
-            return leaderboard
     with open(SESSION_COOKIE_PATH) as cookie_file:
         session_cookie = cookie_file.read().strip()
         data = requests.get(PERSONAL_LEADERBOARD_URL.format(year=year), cookies={"session": session_cookie}).text
-        leaderboard_path.parent.mkdir(exist_ok=True, parents=True)
-        with open(leaderboard_path, "w") as file:
-            file.write(data)
-    return parse_leaderboard(leaderboard_path)
+    return parse_leaderboard(data)
 
 
 class HTMLTag:

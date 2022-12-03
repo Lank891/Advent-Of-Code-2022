@@ -14,4 +14,7 @@ Path to the input file should be passed as a first argument to the program.
 <a href="Day 2/src/main.rs">
   <img src="Media/2022/02.png" width="161px">
 </a>
+<a href="Day 3/src/main.rs">
+  <img src="Media/2022/03.png" width="161px">
+</a>
 <!-- AOC TILES END -->

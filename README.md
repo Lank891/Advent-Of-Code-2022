@@ -6,7 +6,7 @@ Path to the input file should be passed as a first argument to the program.
 ### Progress
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  8 ⭐
+  10 ⭐
 </h1>
 <a href="Day 1/src/main.rs">
   <img src="Media/2022/01.png" width="161px">
@@ -19,5 +19,8 @@ Path to the input file should be passed as a first argument to the program.
 </a>
 <a href="Day 4/src/main.rs">
   <img src="Media/2022/04.png" width="161px">
+</a>
+<a href="Day 5/src/main.rs">
+  <img src="Media/2022/05.png" width="161px">
 </a>
 <!-- AOC TILES END -->

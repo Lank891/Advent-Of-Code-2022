@@ -308,7 +308,7 @@ def handle_year(year_path: Path, year: int):
     for day in range(1, max_day + 1):
         if day not in days_with_filled_gaps:
             days_with_filled_gaps[day] = None
-    for day, day_path in days_with_filled_gaps.items():
+    for day, day_path in sorted(list(days_with_filled_gaps.items()), key=lambda x: x[0]):
         handle_day(day, year, day_path, html, leaderboard.get(str(day), None))
 
     with open(README_PATH, "r", encoding="utf-8") as file:

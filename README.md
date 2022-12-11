@@ -11,12 +11,6 @@ Path to the input file should be passed as a first argument to the program.
 <a href="Day 1/src/main.rs">
   <img src="Media/2022/01.png" width="161px">
 </a>
-<a href="Day 10/src/main.rs">
-  <img src="Media/2022/10.png" width="161px">
-</a>
-<a href="Day 11/src/main.rs">
-  <img src="Media/2022/11.png" width="161px">
-</a>
 <a href="Day 2/src/main.rs">
   <img src="Media/2022/02.png" width="161px">
 </a>
@@ -40,5 +34,11 @@ Path to the input file should be passed as a first argument to the program.
 </a>
 <a href="Day 9/src/main.rs">
   <img src="Media/2022/09.png" width="161px">
+</a>
+<a href="Day 10/src/main.rs">
+  <img src="Media/2022/10.png" width="161px">
+</a>
+<a href="Day 11/src/main.rs">
+  <img src="Media/2022/11.png" width="161px">
 </a>
 <!-- AOC TILES END -->

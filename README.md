@@ -6,13 +6,16 @@ Path to the input file should be passed as a first argument to the program.
 ### Progress
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  20 ⭐
+  22 ⭐
 </h1>
 <a href="Day 1/src/main.rs">
   <img src="Media/2022/01.png" width="161px">
 </a>
 <a href="Day 10/src/main.rs">
   <img src="Media/2022/10.png" width="161px">
+</a>
+<a href="Day 11/src/main.rs">
+  <img src="Media/2022/11.png" width="161px">
 </a>
 <a href="Day 2/src/main.rs">
   <img src="Media/2022/02.png" width="161px">
